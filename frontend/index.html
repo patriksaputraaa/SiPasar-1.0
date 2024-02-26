@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Si Pasar</title>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <!-- Leaflet 1.7.1 -->
+    <link rel="stylesheet" href="./assets/leaflet/leaflet.css">
+
+    <!-- Custom Style -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="preload">
+        <h1>SiPasar</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container bg-light">
+            <a class="navbar-brand" href="./index.html">SiPasar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-1">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./kerjasama.html">Kerja Sama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./kontak.html">Kontak</a>
+                    </li>
+                </ul>
+                <form class="d-flex mb-2 mb-lg-0" id="pencarian">
+                    <input class="form-control me-2" type="search" name="key" placeholder="ex. tempe" aria-label="Pencarian">
+                    <button type="submit" hidden></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <aside>
+        <div class="aside-toggler rounded-end">
+            <span class="fa fa-chevron-left fa-rotate-180"></span>
+        </div>
+        <div class="loading">
+            <span class="fas fa-circle-notch fa-spin"></span>
+        </div>
+        <div class="content">
+        </div>
+    </aside>
+    <main class="row g-0">
+        <div class="col-12">
+            <div id="map"></div>
+        </div>
+    </main>
+
+    <!-- jQuery v3.5.1 -->
+    <script src="./assets/js/jquery.min.js"></script>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <script src="./assets/js/all.min.js"></script>
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+
+    <!-- Leaflet 1.7.1 -->
+    <script src="./assets/leaflet/leaflet.js"></script>
+
+    <!-- Custom Script -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

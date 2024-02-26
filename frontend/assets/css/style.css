@@ -1,0 +1,295 @@
+:root {
+    --primary: rgba(22, 107, 177, 1.0);
+    --primary-transparent: rgba(22, 107, 177, 0.7);
+    --primary-darken: rgba(15, 73, 121, 1.0);
+    --primary-darken-transparent: rgba(15, 73, 121, 0.7);
+
+    --light: rgba(255, 255, 255, 1.0);
+    --light-transparent: rgba(255, 255, 255, 0.7);
+    --light-darken: rgba(200, 200, 200, 1.0);
+    --light-darken-transparent: rgba(200, 200, 200, 0.7);
+    
+    --dark: rgba(52, 73, 94, 1.0);
+    --dark-transparent: rgba(52, 73, 94, 0.7);
+    --dark-darken: rgba(44, 62, 80, 1.0);
+    --dark-darken-transparent: rgba(44, 62, 80, 0.7);
+}
+.preload {
+    transition: all 1s;
+    display: table;
+    position: fixed;
+    text-align: center;
+    background-color: var(--light);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4000;
+}
+.preload > h1 {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: var(--primary) !important;
+}
+nav {
+    height: 10vh;
+    z-index: 2000;
+}
+nav .navbar-brand {
+    font-size: 22pt;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: var(--primary) !important;
+}
+main #map {
+    height: 90vh;
+}
+main #map-detail {
+    height: 35vh;
+    width: 100%;
+}
+main :is(#deskripsi-pasar, #sejarah-pasar) p {
+    text-align: justify;
+}
+main #foto-pasar img {
+    height: 250px;
+    object-fit: cover;
+}
+main #about > .content > .image > img {
+    width: 100%;
+}
+main #about > .content > .desc > p {
+    text-align: justify;
+}
+main #teams .team {
+    position: relative;
+}
+main #teams .team > .image {
+    padding: 0 10%;
+}
+main #teams .team > .image > img {
+    width: 100%;
+    object-fit: cover;
+}
+main #teams .team > .info {
+    transition: all 0.2s;
+    position: absolute;
+    background-color: var(--dark-darken-transparent);
+    width: calc(100% - 3rem);
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    left: 1.5rem;
+}
+main #teams .team > .info:hover {
+    opacity: 1;
+}
+main #teams .team > .info p {
+    margin: 0;
+    color: var(--light-darken);
+    font-size: 10pt;
+}
+main #teams .team > .info .social-media {
+    margin-top: 10px;
+    background-color: var(--dark-darken);
+}
+main #teams .team > .info .social-media > a {
+    transition: all 0.2s;
+    color: var(--light);
+    font-size: 15pt;
+    margin: 0 5px;
+}
+main #teams .team > .info .social-media > a:hover {
+    color: var(--primary);
+}
+main #teams .team > .info p:first-child {
+    color: var(--light);
+    font-weight: bold;
+    font-size: 14pt;
+}
+aside {
+    transition: all 0.2s;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    z-index: 3000;
+    background-color: var(--light);
+    left: -100vw;
+    width: 100vw;
+}
+aside.active {
+    left: 0;
+}
+aside > .loading {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 44vh;
+    color: var(--primary);
+    width: 100%;
+    height: 100vh;
+    font-size: 30pt;
+    background-color: var(--light-transparent);
+    text-align: center;
+}
+aside > .aside-toggler {
+    padding: 0 3px;
+    width: 20px;
+    height: 100vh;
+    left: calc(100% - 20px);
+    display: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    color: var(--primary);
+    border-right: 1px solid var(--primary);
+    border-left: 1px solid var(--primary);
+    border-bottom: 1px solid var(--primary);
+}
+aside > .aside-toggler:hover {
+    background-color: var(--light-darken);
+}
+aside > .aside-toggler > .fa-chevron-left {
+    margin-top: 49vh; 
+}
+aside > .content {
+    padding: 10px 40px 10px 20px;
+    max-height: calc(100vh - 20px);
+    overflow-y: scroll;
+}
+aside > .content > h1 {
+    font-size: 22pt;
+    color: var(--primary-darken);
+}
+aside > .content > table {
+    width: 100%;
+    font-size: 11pt;
+}
+aside > .content > table tr > td {
+    padding: 10px 5px;
+}
+aside > .content > table tr > td > svg {
+    font-size: 15pt;
+}
+aside > .content > table tr > td:first-child {
+    font-size: 8pt;
+    width: 60px;
+    border-right: 2px solid var(--primary);
+    color: var(--primary);
+}
+aside > .content > table tr > td:last-child {
+    word-break: break-all;
+}
+aside > .content > .search-result {
+    cursor: pointer;
+}
+aside > .content > .search-result > h4 {
+    transition: all 0.2s;
+    font-size: 16pt;
+}
+aside > .content > .search-result:hover > h4 {
+    color: var(--primary);
+}
+aside > .content > .search-result > p {
+    font-size: 12pt;
+    margin-bottom: 3px;
+}
+aside > .content > .search-result > ul {
+    padding-left: 19px;
+}
+@media screen and (min-width: 768px) {
+    main #teams .team > .image {
+        padding: 0;
+    }
+    main #teams .team > .image > img {
+        max-height: 300px;
+    }
+    aside {
+        left: -50vw;
+        border-right: 1px solid var(--primary);
+        width: 50vw;
+    }
+    aside > .aside-toggler {
+        padding: 10px 15px;
+        left: 100%;
+        width: initial;
+        height: initial;
+    }
+    aside > .aside-toggler > .fa-chevron-left {
+        margin-top: 0; 
+    }
+    aside > .content {
+        padding: 10px 20px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    /* width */
+    ::-webkit-scrollbar {
+        width: 3px;
+        transition: all 0.2s;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--light-darken-transparent); 
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary); 
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-darken);
+    }
+    aside {
+        left: -25vw;
+        width: 25vw;
+    }
+    aside > .content {
+        padding: 10px 20px;
+    }
+}
+
+.denahnotav{
+    color: var(--primary);
+}
+.borderCCC{
+    border: 1px solid #ccc;
+}
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab a:hover {
+  background-color: #ddd;
+}
+
+.tab .btn.active {
+  background-color: #ccc;
+}
+
+.back{
+    text-align: right;
+}
+
+.spanlink{
+    cursor: pointer;
+    text-decoration: underline;
+}

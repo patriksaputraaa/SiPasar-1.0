@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Si Pasar</title>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <link rel="stylesheet" href="./../assets/css/all.min.css">
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <link rel="stylesheet" href="./../assets/css/bootstrap.min.css">
+
+    <!-- DataTables 1.10.24 -->
+    <link rel="stylesheet" href="./../assets/datatables/datatables.min.css">
+
+    <!-- Custom Style -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../assets/css/admin.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid bg-light">
+            <a class="navbar-brand" href="#">SiPasar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-1">
+                    <li class="nav-item">
+                        <a class="nav-disabled nav-link" id="user-link" aria-current="page" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="logout-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="row g-0">
+        <aside class="col-12 col-md-4 col-xl-3 p-3">
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="./">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./utama.html">Data Utama Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./gedung.html">Gedung Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./foto.html">Foto Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./khas.html">Khas Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./kios.html">Kios Pasar</a>
+                </li>
+            </ul>
+        </aside>
+        <section class="col-12 col-md-8 col-xl-9">
+            <div class="row g-0 justify-content-center p-3">
+                <div class="col-12">
+                    <div id="alert-spot">
+                    </div>
+                    <button class="btn btn-outline-success" id="btn-tambah">Tambah Kios Baru</button>
+                    <hr>
+                    <div id="list">
+                        <h1 class="mb-4">Kios Pasar</h1>
+                        <table class="compact hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Pasar</th>
+                                    <th>Kios</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <datalist id="datalist-khas"></datalist>
+                    <div id="form-tambah">
+                        <h1 class="mb-4">Tambah Kios</h1>
+                        <form method="POST" action="#" enctype="multipart/form-data">
+                            <div class="mb-3 row">
+                                <label for="nama_pasar" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Nama Pasar</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <select name="nama_pasar" id="nama_pasar" class="form-select"></select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-12 col-md-4 col-xl-3 col-form-label text-end">Khas Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <div id="khas_pasar">
+                                        <div class="input-group mb-2">
+                                            <input type="text" name="khas_pasar[]" list="datalist-khas" class="khas-pasar form-control" placeholder="contoh. bakso">
+                                            <span class="input-group-text rmv-khas-pasar"><span class="far fa-times-circle"></span></span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-warning btn-sm" id="tambah-khas-pasar"><span class="fas fa-plus"></span></button>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="nama_kios" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Nama Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input type="text" name="nama_kios" id="nama_kios" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="lokasi_kios" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Lokasi Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input type="text" name="lokasi_kios" id="lokasi_kios" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="foto_kios" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Foto Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input type="file" name="foto_kios" id="foto_kios" accept="image/*" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <button class="btn btn-primary" onclick="return confirm('Apakah anda yakin?')" type="submit">Tambah</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="detail">
+                        <h1 class="mb-4">Detail Kios</h1>
+                        <form method="POST" action="#" enctype="multipart/form-data">
+                            <input type="hidden" name="id_kios" id="id-kios-detail">
+                            <div class="mb-3 row">
+                                <label for="nama_pasar" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Nama Pasar</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <select name="nama_pasar" id="nama_pasar_detail" class="form-select"></select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-12 col-md-4 col-xl-3 col-form-label text-end">Khas Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <div id="khas_pasar_detail">
+                                        <div class="input-group mb-2">
+                                            <input type="text" name="khas_pasar[]" list="datalist-khas" class="khas-pasar-detail form-control" placeholder="contoh. bakso">
+                                            <span class="input-group-text rmv-khas-pasar"><span class="far fa-times-circle"></span></span>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-warning btn-sm" id="tambah-khas-pasar-detail"><span class="fas fa-plus"></span></button>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="nama_kios" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Nama Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input type="text" name="nama_kios" id="nama_kios_detail" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="lokasi_kios" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Lokasi Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input type="text" name="lokasi_kios" id="lokasi_kios_detail" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="foto_kios" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Foto Kios</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input type="file" name="foto_kios" id="foto_kios_detail" accept="image/*" class="form-control">
+                                    <img src="#" alt="" id="foto_kios_sebelumnya" style="width: 300px">
+                                </div>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <button class="btn btn-primary" onclick="return confirm('Apakah anda yakin?')" type="submit">Ubah</button>
+                                <button class="btn btn-outline-warning" id="btn-kembali">Kembali</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <footer class="text-center p-3">
+                <p>2021. SiPasar. BAPPEDA Kota Yogyakarta dan Fakultas Teknologi Informasi Universitas Kristen Duta Wacana.</p>
+                <p>Data oleh Dinas Perdagangan Kota Yogyakarta.</p>
+            </footer>
+        </section>
+    </main>
+
+    <!-- jQuery v3.5.1 -->
+    <script src="./../assets/js/jquery.min.js"></script>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <script src="./../assets/js/all.min.js"></script>
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <script src="./../assets/js/bootstrap.min.js"></script>
+
+    <!-- DataTables 1.10.24 -->
+    <script src="./../assets/datatables/datatables.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="./../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+:root {
+    --primary: rgba(22, 107, 177, 1.0);
+    --primary-transparent: rgba(22, 107, 177, 0.7);
+    --primary-darken: rgba(15, 73, 121, 1.0);
+    --primary-darken-transparent: rgba(15, 73, 121, 0.7);
+
+    --light: rgba(255, 255, 255, 1.0);
+    --light-transparent: rgba(255, 255, 255, 0.7);
+    --light-darken: rgba(200, 200, 200, 1.0);
+    --light-darken-transparent: rgba(200, 200, 200, 0.7);
+    
+    --dark: rgba(52, 73, 94, 1.0);
+    --dark-transparent: rgba(52, 73, 94, 0.7);
+    --dark-darken: rgba(44, 62, 80, 1.0);
+    --dark-darken-transparent: rgba(44, 62, 80, 0.7);
+}
+body {
+    min-height: 100vh;
+}
+nav {
+    height: 10vh;
+    z-index: 2000;
+    border-bottom: 1px solid var(--primary);
+}
+nav .navbar-brand {
+    font-size: 22pt;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: var(--primary) !important;
+}
+main {
+    min-height: 90vh;
+}
+main > aside {
+    border-right: 1px solid var(--primary);
+}
+main footer {
+    border-top: 1px solid var(--primary);
+}
+#form-tambah {
+    display: none;
+}
+#detail {
+    display: none;
+}
+.nav-disabled {
+    cursor: default!important;
+}

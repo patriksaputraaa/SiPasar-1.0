@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Si Pasar</title>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <link rel="stylesheet" href="./../assets/css/all.min.css">
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <link rel="stylesheet" href="./../assets/css/bootstrap.min.css">
+
+    <!-- OwlCarousel 2.3.4 -->
+    <link rel="stylesheet" href="./../assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./../assets/owlcarousel/assets/owl.theme.default.min.css">
+
+    <!-- DataTables 1.10.24 -->
+    <link rel="stylesheet" href="./../assets/datatables/datatables.min.css">
+
+    <!-- Custom Style -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../assets/css/admin.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid bg-light">
+            <a class="navbar-brand" href="#">SiPasar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-1">
+                    <li class="nav-item">
+                        <a class="nav-disabled nav-link" id="user-link" aria-current="page" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="logout-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="row g-0">
+        <aside class="col-12 col-md-4 col-xl-3 p-3">
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="./">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./utama.html">Data Utama Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./gedung.html">Gedung Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./foto.html">Foto Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./khas.html">Khas Pasar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./kios.html">Kios Pasar</a>
+                </li>
+            </ul>
+        </aside>
+        <section class="col-12 col-md-8 col-xl-9">
+            <div class="row g-0 justify-content-center p-3">
+                <div class="col-12">
+                    <div id="alert-spot">
+                    </div>
+                    <div id="list">
+                        <h1 class="mb-4">Foto Pasar</h1>
+                        <table class="compact hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nama Pasar</th>
+                                    <th>Jumlah Foto</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div id="detail">
+                        <h1 class="mb-4">Detail Foto Pasar</h1>
+                        <form method="POST" action="#" enctype="multipart/form-data">
+                            <input type="hidden" name="id_pasar" id="id-pasar">
+                            <div class="mb-3 row">
+                                <label for="nama_pasar" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Nama Pasar</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input name="nama_pasar" id="nama_pasar" disabled class="form-control" type="text" placeholder="Nama Pasar">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="foto_pasar" class="col-12 col-md-4 col-xl-3 col-form-label text-end">Foto Pasar</label>
+                                <div class="col-12 col-md-6 col-xl-6">
+                                    <input type="file" name="foto_pasar" id="foto_pasar" accept="image/*" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <button class="btn btn-primary" onclick="return confirm('Apakah anda yakin?')" type="submit">Tambah</button>
+                                <button class="btn btn-outline-warning" id="btn-kembali">Kembali</button>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-12" id="carousel-foto">
+                                    <div class="owl-carousel">
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <h6>* Klik gambar untuk menghapus</h6>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <footer class="text-center p-3">
+                <p>2021. SiPasar. BAPPEDA Kota Yogyakarta dan Fakultas Teknologi Informasi Universitas Kristen Duta Wacana.</p>
+                <p>Data oleh Dinas Perdagangan Kota Yogyakarta.</p>
+            </footer>
+        </section>
+    </main>
+
+    <!-- jQuery v3.5.1 -->
+    <script src="./../assets/js/jquery.min.js"></script>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <script src="./../assets/js/all.min.js"></script>
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <script src="./../assets/js/bootstrap.min.js"></script>
+
+    <!-- OwlCarousel 2.3.4 -->
+    <script src="./../assets/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- DataTables 1.10.24 -->
+    <script src="./../assets/datatables/datatables.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="./../assets/js/admin.js"></script>
+</body>
+</html>

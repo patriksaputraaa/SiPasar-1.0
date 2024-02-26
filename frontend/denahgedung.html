@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Si Pasar</title>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <!-- Custom Style -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+    <div class="preload">
+        <h1>SiPasar</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container bg-light">
+          <a class="navbar-brand" href="./index.html">SiPasar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-1">
+                  <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="./index.html">Beranda</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="./tentang.html">Tentang</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="./kerjasama.html">Kerja Sama</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="./kontak.html">Kontak</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+    <!-- Modal -->
+  <div class="modal fade" id="kiosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="ModalBody">
+          
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="kiosModalPop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body" id="ModalBodyPop">
+        </div>
+      </div>
+    </div>
+  </div>
+    <main>
+        <!-- <object id="svgnya" type="image/svg+xml"></object> -->
+        <div class="container">
+            <div class="row g-0 justify-content-center">
+                <div class="col-12 my-2">
+                    <h2 class="text-center" id="nama-pasar"></h2>
+                </div>
+                <div class="col-12">
+                  <div id="message"></div>
+                </div>
+                <div class="col-12 borderCCC">
+                    <object id="denah" type="image/svg+xml" data="" ></object>
+                </div>
+                 
+                <div class="col-12 my-2" id="kios-pasar">
+                  <br>
+                  <h4>Kios </h4>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light mt-5 p-3">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <p class="text-center">&copy; 2021. SiPasar. BAPPEDA Kota Yogyakarta dan Fakultas Teknologi Informasi Universitas Kristen Duta Wacana.
+                      Data oleh Dinas Perdagangan Kota Yogyakarta.</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  
+    <!-- jQuery v3.5.1 -->
+    <script src="./assets/js/jquery.min.js"></script>
+
+    <!-- Font Awesome Free 5.15.2 -->
+    <script src="./assets/js/all.min.js"></script>
+
+    <!-- Bootstrap v5.0.0-beta2 -->
+    <script src="./assets/js/bootstrap.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="./assets/js/denahgedung.js"></script>
+    
+</body>
+</html>
