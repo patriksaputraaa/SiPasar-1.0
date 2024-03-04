@@ -1,6 +1,6 @@
 $(function () {
     const apiBaseUrl = "http://localhost:8000/";
-    const baseUrl = "http://localhost/sipasar/frontend/";
+    const baseUrl = "http://localhost:8081/frontend/";
 
     var pasarList;
 
@@ -370,7 +370,9 @@ $(function () {
             .fail(function(fail) {
                 console.log(fail.responseText);
             });
-            
+
+            alert(window.location.href + ' ' + baseUrl+'admin/')
+
             if(window.location.href == baseUrl+'admin/' || window.location.href == baseUrl+'admin/index.html') {
                 
                 $.ajax({
