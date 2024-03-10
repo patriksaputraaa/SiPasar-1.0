@@ -2,9 +2,17 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 
 class CrosMiddleware {
-	public function handle($request,Closure $next) {
+    protected $request;
+    
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
+
+	public function handle(Request $request,Closure $next) {
         $headers = [
             'Access-Control-Allow-Origin'      => '*',
             'Access-Control-Allow-Methods'     => 'HEAD, POST, GET, OPTIONS, PATCH, PUT, DELETE',

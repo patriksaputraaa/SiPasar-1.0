@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 
 class Pasar extends Model
 {
@@ -32,4 +33,9 @@ class Pasar extends Model
     protected $casts = [
         'lonlan' => 'array',
     ];
+
+    public static function getLonLan()
+    {
+        return DB::select("SELECT id_pasar, nama_pasar, ST_X(lonlan) as latitude, ST_Y(lonlan) as longitude FROM pasar WHERE is_aktif=?", [1]);
+    }
 }

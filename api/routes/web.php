@@ -2,6 +2,7 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 use App\Models\User;
+use App\Model\Pasar;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -25,8 +26,9 @@ $router->get('/setuser', function () use ($router) {
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
 $router->group(['prefix'=>'pasar', 'middleware'=>'cros'],function() use ($router){
-	$router->get('/getlonlan','PasarController@getlonlan');
+	$router->get('/getlonlan','LumPasarController@getlonlan');
     $router->get('/getdesc/{id}','PasarController@getdesc');
     $router->post('/getkey','PasarController@getkey');
 
