@@ -28,9 +28,9 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix'=>'pasar', 'middleware'=>'cros'],function() use ($router){
-	$router->get('/getlonlan','LumPasarController@getlonlan');
-    $router->get('/getdesc/{id}','PasarController@getdesc');
-    $router->post('/getkey','PasarController@getkey');
+	$router->get('/getlonlan','LumPasarController@getLonLan');
+    $router->get('/getdesc/{id}','LumPasarController@getDesc');
+    $router->post('/getkey','LumPasarController@getKey');
 
     $router->get('/getpasarkios','KiosController@getall');
     $router->get('/getpasarkiosdetail/{idpasar}/{idlantai}/{idsvg}','KiosController@getdesc');
