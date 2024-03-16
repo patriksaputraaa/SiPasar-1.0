@@ -24,7 +24,7 @@ class LumPasarController extends BaseController
         $key = $request->input('key');
         $key = array_filter(explode(" ", str_replace([" , ", " ,", ", ", ".", " . ", " .", ".  "], " ", $key)));
 
-        $data['pasar'] = Pasar::searchbykey($key);
+        $data['pasar'] = Pasar::searchByKey($key);
 
         return response()->json($data);
     }

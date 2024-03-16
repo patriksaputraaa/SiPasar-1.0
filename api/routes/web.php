@@ -2,7 +2,7 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 use App\Models\User;
-use App\Model\Pasar;
+// use App\Model\Pasar;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -32,16 +32,16 @@ $router->group(['prefix'=>'pasar', 'middleware'=>'cros'],function() use ($router
     $router->get('/getdesc/{id}','LumPasarController@getDesc');
     $router->post('/getkey','LumPasarController@getKey');
 
-    $router->get('/getpasarkios','KiosController@getall');
-    $router->get('/getpasarkiosdetail/{idpasar}/{idlantai}/{idsvg}','KiosController@getdesc');
+    $router->get('/getpasarkios','LumKiosController@getAll');
+    $router->get('/getpasarkiosdetail/{idpasar}/{idlantai}/{idsvg}','LumKiosController@getDesc');
 
     $router->group(['prefix'=>'detail','middleware'=>'cros'],function() use ($router){
-        $router->get('/getone/{id}','DetailController@getone');
+        $router->get('/getone/{id}','LumDetailController@getOne');
     });
 
     $router->group(['prefix'=>'denah','middleware'=>'cros'],function() use ($router){
-        $router->get('/getdenah/{idpasar}/{idlantai}','DenahController@getdenah');
-        $router->get('/getdenahgedung/{idpasar}/{idlantai}/{gedung}','DenahController@getdenahGedung');
+        $router->get('/getdenah/{idpasar}/{idlantai}','LumDenahController@getDenah');
+        $router->get('/getdenahgedung/{idpasar}/{idlantai}/{gedung}','DenahController@getdenahgedung');
     });
 });
 $router->group(['prefix'=>'admin', 'middleware'=>'cros'],function() use ($router){

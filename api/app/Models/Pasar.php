@@ -53,7 +53,7 @@ class Pasar extends Model
         return $data;
     }
 
-    public static function searchbykey($key)
+    public static function searchByKey($key)
     {
         $sql = "SELECT DISTINCT pas.id_pasar, pas.alamat_pasar, pas.nama_pasar, ST_X(pas.lonlan) as latitude, ST_Y(pas.lonlan) as longitude"
             ." FROM pasar AS pas"
