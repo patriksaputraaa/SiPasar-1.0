@@ -56,7 +56,7 @@ $router->group(['prefix'=>'admin', 'middleware'=>'cros'],function() use ($router
     $router->get('/getonekios/{id}','AdminController@getonekios');
     $router->post('/addkios','AdminController@addkios');
     $router->post('/editkios','AdminController@editkios');
-    $router->get('/deletekios/{id}','AdminController@deletekios');
+    $router->get('/deletekios/{id}','AdminController@deletekios');//!!!
 
     $router->get('/getutama','AdminController@getutama');
     $router->get('/getoneutama/{id}','AdminController@getoneutama');
