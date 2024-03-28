@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Laravel\Lumen\Routing\Controller as BaseController;
+// use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -32,22 +33,22 @@ class AuthController extends Controller
             $username = $request->username;
             $password = $request->password;
 
-            $user = new User();
+            // $user = new User();
+            // $userGet = $user->where("username", $username)->first();
+            $user = User::where("username", $username)->first();
 
-            $userGet = $user->where("username", $username)->first();
-
-            if(!$userGet) {
+            if(!$user) {//!$userGet
                 $out = [
                     "error_message" => "User tidak ditemukan"
                 ];
                 return response()->json($out);
             } else {
-                if (Hash::check($password, $userGet->password)) {
+                if (Hash::check($password, $user->password)) {
                     $token = Str::random(40);
-                    $userGet->update(['token' => $token]);
+                    $user->update(['token' => $token]);
                     $out = [
                         "success_message" => [
-                            'nama' => $userGet->nama,
+                            'nama' => $user->nama,
                             'token' => $token,
                         ]
                     ];
@@ -66,9 +67,15 @@ class AuthController extends Controller
     {
         $token = $request->token;
 
-        $user = new User();
-        $userGet = $user->where("token", $token)->first();
+        // $user = new User();
+        // $userGet = $user->where("token", $token)->first();
+        // return response()->json($userGet);
+        $user = User::where("token", $token)->first();
 
-        return response()->json($userGet);
+        if (!$user) {
+            return response()->json(['error_message' => 'User tidak ditemukan'], 404);
+        }
+
+        return response()->json($user);
     }
 }

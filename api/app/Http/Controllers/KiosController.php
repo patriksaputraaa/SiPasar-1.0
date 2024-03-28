@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\PasarKios;
+use Laravel\Lumen\Routing\Controller as BaseController;
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Http\Request;
 
-class KiosController extends Controller
+class KiosController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -17,10 +19,12 @@ class KiosController extends Controller
         //
     }
 
-    public function getall(Request $request)
+    public function getall()
     {
-        $sql = "SELECT * FROM pasarkios";
-        $query = DB::select($sql);
+        // $sql = "SELECT * FROM pasarkios";
+        // $query = DB::select($sql);
+        // return response()->json($query);
+        $query = PasarKios::getAll();
         return response()->json($query);
     }
 
@@ -34,11 +38,14 @@ class KiosController extends Controller
         //     "and id_gedung = ".$idlantai." ".
         //     "and pd.id_svg = ".$idsvg;
 
-        $sql = "SELECT pk.* FROM pasarkios pk ".
-               "WHERE pk.lantai = ".$idlantai." ". 
-               "and pk.kode_svg = '".$idsvg."' ".
-               " and pk.id_pasar= ".$idpasar;
-        $query = DB::select($sql);
-        return response()->json($query[0]);
+        // $sql = "SELECT pk.* FROM pasarkios pk ".
+        //        "WHERE pk.lantai = ".$idlantai." ". 
+        //        "and pk.kode_svg = '".$idsvg."' ".
+        //        " and pk.id_pasar= ".$idpasar;
+        // $query = DB::select($sql);
+        // return response()->json($query[0]);
+
+        $query = PasarKios::getByDescription($idpasar, $idlantai, $idsvg);
+        return response()->json($query);
     }
 }

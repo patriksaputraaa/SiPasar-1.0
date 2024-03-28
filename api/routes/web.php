@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 | and give it the Closure to call when that URI is requested.
 |
 */
+
 $router->get('/setuser', function () use ($router) {
     $user = new User();
     $user->username = "adminpasar";
@@ -28,22 +29,23 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix'=>'pasar', 'middleware'=>'cros'],function() use ($router){
-	$router->get('/getlonlan','LumPasarController@getLonLan');
-    $router->get('/getdesc/{id}','LumPasarController@getDesc');
-    $router->post('/getkey','LumPasarController@getKey');
+	$router->get('/getlonlan','PasarController@getlonlan');
+    $router->get('/getdesc/{id}','PasarController@getdesc');
+    $router->post('/getkey','PasarController@getkey');
 
-    $router->get('/getpasarkios','LumKiosController@getAll');
-    $router->get('/getpasarkiosdetail/{idpasar}/{idlantai}/{idsvg}','LumKiosController@getDesc');
+    $router->get('/getpasarkios','KiosController@getAll'); //ada tambahan atribut telp dan deskripsi
+    $router->get('/getpasarkiosdetail/{idpasar}/{idlantai}/{idsvg}','KiosController@getDesc');
 
     $router->group(['prefix'=>'detail','middleware'=>'cros'],function() use ($router){
-        $router->get('/getone/{id}','LumDetailController@getOne');
+        $router->get('/getone/{id}','DetailController@getOne');
     });
 
     $router->group(['prefix'=>'denah','middleware'=>'cros'],function() use ($router){
-        $router->get('/getdenah/{idpasar}/{idlantai}','LumDenahController@getDenah');
+        $router->get('/getdenah/{idpasar}/{idlantai}','DenahController@getdenah');
         $router->get('/getdenahgedung/{idpasar}/{idlantai}/{gedung}','DenahController@getdenahgedung');
     });
 });
+
 $router->group(['prefix'=>'admin', 'middleware'=>'cros'],function() use ($router){
 	$router->get('/getdashboard','AdminController@getdashboard');
 
